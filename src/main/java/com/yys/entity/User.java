@@ -1,9 +1,7 @@
 package com.yys.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -69,12 +67,18 @@ public class User implements Serializable {
     /**
      * 是否删除0和1
      */
+    @TableLogic
     private Integer isDelete;
 
     /**
      * 
      */
     private String userAccount;
+
+    /**
+     * 管理人员0为游客 1为管理员
+     */
+    private int userRole;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
